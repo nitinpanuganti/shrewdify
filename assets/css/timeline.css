@@ -1,0 +1,88 @@
+/* Timeline — used only on about/news-and-events.html */
+.timeline {
+  position: relative;
+  padding: 2rem 0 3rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--color-border) 5%, var(--color-border) 95%, transparent);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: calc(50% + 2.75rem);
+  margin-bottom: 2rem;
+  position: relative;
+}
+.timeline-item:nth-child(even) {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 2.75rem);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 1rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  border: 3px solid var(--color-white);
+  box-shadow: 0 0 0 2px var(--color-accent), 0 0 0 5px var(--color-accent-glow);
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timeline-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.1rem 1.4rem;
+  max-width: 400px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+.timeline-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+
+.timeline-card .tl-tag {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--color-white);
+  background: var(--color-accent);
+  border-radius: 4px;
+  padding: .15rem .6rem;
+  margin-bottom: .5rem;
+}
+.timeline-card .tl-tag.tag-client   { background: #10b981; }
+.timeline-card .tl-tag.tag-training { background: #8b5cf6; }
+.timeline-card .tl-tag.tag-trip     { background: #f59e0b; }
+.timeline-card .tl-tag.tag-anniv    { background: #ef4444; }
+.timeline-card .tl-tag.tag-pres     { background: #0ea5e9; }
+
+.timeline-card h4 { font-size: .9rem; margin-bottom: .2rem; }
+.timeline-card p  { font-size: .85rem; color: var(--color-muted); margin-top: .2rem; }
+.timeline-card .tl-date { font-size: .75rem; color: var(--color-muted); margin-top: .35rem; font-family: var(--font-heading); font-weight: 600; }
+
+@media (max-width: 700px) {
+  .timeline::before { left: 1rem; }
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    justify-content: flex-start;
+    padding-right: 0;
+    padding-left: 3rem;
+  }
+  .timeline-dot { left: 1rem; transform: translateX(-50%); }
+  .timeline-card { max-width: 100%; }
+}
