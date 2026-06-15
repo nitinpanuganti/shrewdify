@@ -3,3 +3,5 @@ CLAUDE.md
 PLAN.md
 serve.sh
 PROMPT.md
+node_modules/
+.DS_Store
